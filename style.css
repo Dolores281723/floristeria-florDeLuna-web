@@ -1,0 +1,393 @@
+        /* --- FUENTES Y ESTILOS GLOBALES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;500&display=swap');
+
+        :root {
+            --color-principal: #3A5A40; /* Verde oscuro del logo */
+            --color-fondo: #F5F1E6;      /* Crema del fondo */
+            --color-texto: #333;
+            --color-blanco: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Para el desplazamiento suave de los enlaces */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            color: var(--color-principal);
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        /* --- CABECERA Y NAVEGACIÓN --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: var(--color-fondo);
+            border-bottom: 1px solid rgba(58, 90, 64, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-family: 'Lora', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-principal);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--color-principal);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #588157;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--color-principal);
+        }
+        
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e63946;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* === ESTILOS PARA EL SUBMENÚ/FILTROS === */
+/* ===================================== */
+
+/* Contenedor principal de la barra de submenú */
+.submenu-nav {
+    background-color: #8c9a3b; /* Un verde olivo similar al de la imagen */
+    margin-bottom: 40px; /* Espacio antes de los productos */
+    border-radius: 5px;
+}
+
+.submenu-nav > ul {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Pone los elementos en horizontal */
+    justify-content: center; /* Centra los elementos */
+}
+
+.submenu-nav li {
+    position: relative; /* Clave para posicionar el submenú */
+}
+
+.submenu-nav a {
+    display: block; /* Hace que toda el área del enlace sea clickeable */
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.submenu-nav li:not(:last-child) > a {
+    /* Añade el separador vertical, excepto en el último elemento */
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submenu-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el submenú desplegable */
+.submenu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Lo posiciona justo debajo del elemento padre */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-width: 200px; /* Ancho mínimo del desplegable */
+    z-index: 1000; /* Asegura que se muestre por encima de otros elementos */
+    border-radius: 0 0 5px 5px;
+}
+
+/* Mostramos el submenú cuando tenga la clase 'show' (que añadirá JS) */
+.submenu.show {
+    display: block;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu a {
+    color: #333; /* Color de texto oscuro para el desplegable */
+    font-weight: normal;
+    border: none !important; /* Quita el separador vertical en el submenú */
+}
+
+.submenu a:hover {
+    background-color: #f5f5f5;
+}
+
+        /* --- SECCIÓN PRINCIPAL (HERO) --- */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=1965&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: var(--color-blanco);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: var(--color-principal);
+            color: var(--color-blanco);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #588157;
+        }
+        
+        /* --- SECCIÓN DE PRODUCTOS --- */
+        .products-section {
+            text-align: center;
+            background-color: var(--color-blanco);
+        }
+
+        .products-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--color-fondo);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-principal);
+            margin: 10px 0;
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--color-principal);
+            color: var(--color-blanco);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #588157;
+        }
+
+        /* --- SECCIÓN SOBRE NOSOTROS --- */
+        .about-section {
+            text-align: center;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+            margin-top: 40px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 1;
+            max-width: 450px;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        /* --- SECCIÓN DE CONTACTO --- */
+        .contact-section {
+            text-align: center;
+            background-color: var(--color-blanco);
+        }
+        .contact-section p {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--color-principal);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box; /* Importante para que el padding no afecte el ancho */
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-principal);
+            box-shadow: 0 0 5px rgba(58, 90, 64, 0.5);
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--color-principal);
+            color: var(--color-fondo);
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        .footer a {
+            color: var(--color-fondo);
+            text-decoration: none;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 15px;
+                position: static;
+            }
+            .nav-links {
+                margin-top: 15px;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+        }
